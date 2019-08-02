@@ -1,0 +1,5 @@
+Gabriel Adams | Homework 12 Test Transcript | CIS 352 | May 2nd, 2015
+-------------------------------------------------------------------------
+*LParser> quickCheck prop1
++++ OK, passed 100 tests.
+*LParser> 

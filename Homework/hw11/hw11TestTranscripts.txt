@@ -1,0 +1,23 @@
+Gabe Adams | Homework 11 Test Transcripts | CIS 352
+------------------------------------------------------------
+4)
+*Main> test3
+True
+------------------------------------------------------------
+5)
+*Main> quickCheck prop_parse1
++++ OK, passed 100 tests.
+------------------------------------------------------------
+6)
+
+*Main> quickCheck prop_parse2
+*** Failed! Falsifiable (after 7 tests and 1 shrink): 
+Sub (Sub (Num 14) (Num 5)) (Num 17)
+------------------------------------------------------------
+7)
+*Main> parse after100 date1
+[(2000-06-08,"")]
+*Main> parse after100 date2
+[(2016-07-23,"")]
+*Main> parse after100 date3
+[(2016-08-10,"")]

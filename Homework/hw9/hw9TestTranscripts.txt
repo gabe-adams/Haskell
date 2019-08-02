@@ -1,0 +1,110 @@
+HW09 Test Transcripts Gabe Adams CIS 352 4/5/16
+------------------------------------------
+4)
+
+*Main> printFlipped 2 
+pls
+work
+krow
+slp
+*Main> printFlipped 2
+i wonder
+if this works too
+oot skrow siht fi
+rednow i
+*Main> printFlipped 3
+here's one line
+here's a second
+and a third
+driht a dna
+dnoces a s'ereh
+enil eno s'ereh
+*Main> printFlipped 0
+*Main> 
+*Main> printFlipped 2
+
+
+
+
+*Main> 
+------------------------------------------
+5) 
+*Main> ask "hey"
+hey
+
+'n'
+*Main> ask "Do you like jellyfish?"
+Do you like jellyfish?
+no!!!
+'n'
+*Main> ask "apples or oranges?"
+apples or oranges?
+apples
+'a'
+*Main> ask "how are you?"
+how are you?
+well
+'w'
+------------------------------------------
+6)
+*Main> game
+Think of a number between 1 and 100
+Is your number <= 50 ?
+n
+Is your number <= 75 ?
+y
+Is your number <= 62 ?
+n
+Is your number <= 68 ?
+y
+Is your number <= 65 ?
+y
+Is your number <= 63 ?
+n
+Your number must be 64
+*Main> game
+Think of a number between 1 and 100
+Is your number <= 50 ?
+y
+Is your number <= 25 ?
+y
+Is your number <= 12 ?
+y
+Is your number <= 6 ?
+n
+Is your number <= 9 ?
+y
+Is your number <= 7 ?
+n
+Your number must be 8
+*Main> game
+Think of a number between 1 and 100
+Is your number <= 50 ?
+y
+Is your number <= 25 ?
+y
+Is your number <= 12 ?
+y
+Is your number <= 6 ?
+y
+Is your number <= 3 ?
+
+Is your number <= 4 ?
+n
+Your number must be 5
+game
+Think of a number between 1 and 100
+Is your number <= 50 ?
+yes
+Is your number <= 25 ?
+no
+Is your number <= 37 ?
+no
+Is your number <= 43 ?
+no
+Is your number <= 46 ?
+no
+Is your number <= 48 ?
+yes
+Your number must be 47
+--------------------------------------------

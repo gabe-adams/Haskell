@@ -1,0 +1,149 @@
+-- sample definitions for the User Defined Types slides
+-- Version 1: 26 January 2016
+
+data Season = Winter | Spring | Summer | Fall
+              deriving (Eq,Ord,Show)
+
+hasSnow :: Season -> Bool
+hasSnow Summer = False
+hasSnow _      = True
+
+data Move   = Rock | Paper | Scissors
+              deriving (Show,Eq)
+
+data Result = Win1 | Win2 | Tie
+              deriving (Show,Eq)              
+
+game :: Move -> Move -> Result
+game m1 m2 | m1==m2 = Tie
+game Rock Scissors = Win1
+game Paper Rock    = Win1
+game Scissors Paper = Win1
+game _ _            = Win2
+
+
+data Location = Address Int String
+                deriving (Show)
+   
+nextDoor :: Location -> Location
+nextDoor (Address num street) = Address (num+1) street
+   
+showAddr :: Location -> String
+showAddr (Address num street) = (show num) ++ " " ++ street
+
+
+data Location' = Address' { number :: Int,
+                            street :: String }
+                 deriving (Eq,Show)
+
+baxter = Address' { street = "East 42nd Street",  number = 39}
+
+
+-- Time h m represents a time Zeit of h hours & m mins
+data Zeit = Time Integer Integer
+
+instance Eq Zeit where
+    Time h1 m1 == Time h2 m2  =  (60*h1+m1==60*h2+m2)
+
+instance Ord Zeit where
+    Time h1 m1 <= Time h2 m2  =  (60*h1+m1 <= 60*h2+m2)                                 
+instance Num Zeit where
+    Time h1 m1 + Time h2 m2  =  Time h m 
+        where (h,m) = quotRem (60*(h1+h2)+m1+m2) 60
+    Time h1 m1 - Time h2 m2  =  Time h m 
+        where (h,m) = quotRem (60*(h1-h2)+m1-m2) 60
+    fromInteger n = Time h m
+        where (h,m) = quotRem  n 60
+    (*)    = undefined
+    abs    = undefined
+    signum = undefined
+{-
+
+-}
+
+instance Show Zeit where
+    show (Time h m) =  show h ++ " hours and " 
+                       ++ show m ++ " minutes"
+
+
+
+
+data Cmplx = Cmplx Double Double -- Cmplx a b === a+bi
+             deriving (Eq)
+                      
+re, im :: Cmplx -> Double
+re (Cmplx x y) = x
+im (Cmplx x y) = y
+
+instance Show Cmplx where
+    show (Cmplx x y) = show x ++ "+" ++ show y ++ "i"
+
+{-
+instance Eq Cmplx where
+    (Cmplx x y)==(Cmplx x' y') = undefined
+-}
+
+{-
+instance Ord Cmplx where
+    (Cmplx x y)<=(Cmplx x' y') = undefined
+-}
+
+instance Num Cmplx where
+    (Cmplx x y)+(Cmplx x' y') = undefined
+    (Cmplx x y)-(Cmplx x' y') = undefined
+    (Cmplx x y)*(Cmplx x' y') = undefined
+    abs (Cmplx x y)           = undefined
+    signum (Cmplx x y)        = undefined
+    fromInteger n             = undefined
+
+
+type Point = (Float,Float)   -- not the same as LYAH's
+data Shape = Circle Point Float | Rectangle Point Point 
+             deriving (Show)
+-- Circle p r       = a circle with center p and radius r
+-- Rectangle p1 p2  = a rectangle with opposite corner pts p1 and p2
+
+area, circum :: Shape -> Float
+area (Circle _ r)                  = pi * r^2
+area (Rectangle (x1,y1) (x2,y2))   = abs(x1-x2)*abs(y1-y2)
+
+circum (Circle _ r)                = 2 * pi * r
+circum (Rectangle (x1,y1) (x2,y2)) = 2 * (abs(x1-x2) + abs(y1-y2))
+
+-- nudge s (x,y) = shape s moved by the vector (x,y)
+nudge :: Shape -> Point -> Shape 
+nudge (Circle (x,y) r) (x',y')
+    = Circle (x+x',y+y') r
+
+nudge (Rectangle (x1,y1) (x2,y2)) (x',y')  
+    = Rectangle (x1+x',y1+y') (x2+x',y2+y')
+
+
+data IntList = Empty | Cons Int IntList
+               deriving (Show,Eq,Ord)
+
+-- Convert from IntLists to convential list of Ints
+convert :: IntList -> [Int]
+convert Empty       = []
+convert (Cons x xs) = x:(convert xs)
+
+-- Convert from convential list of Ints to IntLists
+revert :: [Int] -> IntList
+revert []     = Empty
+revert (x:xs) = Cons x (revert xs)
+
+
+data MyList a = Empty' | Cons' a (MyList a)
+                deriving (Eq, Show)
+
+convert' :: MyList a -> [a]
+convert' Empty'       = []
+convert' (Cons' x xs) = x:(convert' xs)
+
+revert' :: [a] -> MyList a
+revert' []     = Empty'
+revert' (x:xs) = Cons' x (revert' xs)
+
+
+
+ages = [("Dixie",4),("Maxie",15),("Penny",8)]                 

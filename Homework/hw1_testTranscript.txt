@@ -1,0 +1,100 @@
+Gabe Adams CIS 352 Homework 1 Test Transcripts 1/26/16
+********************************************************
+Problem 1: Distance
+
+*Main> quickCheck dist_prop
++++ OK, passed 100 tests.
+
+*Main> distance (2,2) (4,4)
+2.8284271247461903
+
+*Main> distance (-2,2) (4,-4)
+8.48528137423857
+---------------------------------------------------------
+
+Problem 2: Testing for Vowels
+
+*Main> quickCheck vowel_prop
++++ OK, passed 100 tests.
+
+*Main> isVowel 'b'
+False
+
+*Main> isVowel 'a'
+True
+---------------------------------------------------------
+
+Problem 3: Disemvoweling 
+
+*Main> quickCheck disemv_prop
++++ OK, passed 100 tests.
+
+*Main> disEmvowel "remove vowel test"
+"rmv vwl tst"
+-----------------------------------------------------------
+
+Problem 4: Smash 
+
+*Main> quickCheck smash_prop
++++ OK, passed 100 tests.
+
+*Main> smash "Hey! Sir, do I knoW you?"
+"heysirdoiknowyou"
+
+*Main> smash "does#it%)get09283these~~~''?"
+"doesitgetthese"
+-----------------------------------------------------------
+
+Problem 5: Circular shift cypher
+
+*Main> quickCheck shift1_prop
++++ OK, passed 100 tests.
+
+*Main> quickCheck shift2_prop
++++ OK, passed 100 tests.
+
+*Main> shift 0 "abcdxyz"
+"abcdxyz"
+
+*Main> shift 1 "abcdxyz"
+"bcdeyza"
+
+*Main> shift 2 "ab234xy2@z"
+"cdzab"
+------------------------------------------------------------
+
+Problem 6: Capitalization
+
+*Main> quickCheck cap_prop
++++ OK, passed 100 tests.
+
+*Main> capitalized "syRacUSE"
+"Syracuse"
+
+*Main> capitalized "num234BER"
+"Num234ber"
+------------------------------------------------------------
+
+Problem 7: Title Capitalization 
+
+*Main> quickCheck title_prop
++++ OK, passed 100 tests.
+
+*Main> title ["the", "order", "OF", "the", "pheonix"]
+["The","Order","of","the","Pheonix"]
+
+*Main> title ["a","movie","title!"]
+["A","Movie","Title!"]
+-------------------------------------------------------------
+testRun result
+
+*Main> testRun
+convert prop             : +++ OK, passed 100 tests.
+vowel prop               : +++ OK, passed 100 tests.
+disemvowel prop          : +++ OK, passed 100 tests.
+smash prop               : +++ OK, passed 100 tests.
+shift prop 1             : +++ OK, passed 100 tests.
+shift prop 2             : +++ OK, passed 100 tests.
+capitalized prop         : +++ OK, passed 100 tests.
+title prop               : +++ OK, passed 100 tests.
+

@@ -1,0 +1,105 @@
+-- Sample definitions for the Types slides
+
+zapUpper :: [Char] -> [Char]
+zapUpper cs = [ c | c <- cs, c `notElem` ['A'..'Z']]
+
+addThree :: Int -> Int -> Int -> Int
+addThree x y z = x+y+z
+
+twoEqChar :: Char -> Char -> Char -> Bool
+twoEqChar c1 c2 c3 =  (c1==c2) || (c1==c3) || (c2==c3)
+
+                      
+twoEq :: (Eq a) => a -> a -> a -> Bool
+-- twoEq :: a -> a -> a -> Bool  -- This doesn't work 
+twoEq x1 x2 x3 =  (x1==x2) || (x1==x3) || (x2==x3)
+
+isPositive :: Int -> Bool
+isPositive num = (num>0)
+
+twice :: Int -> Int
+twice y = y + y
+
+foo :: Int -> Int -> Int
+foo x y = x + (twice y) - 6
+
+
+
+lucky7 :: Int -> String
+lucky7 7 = "You win"
+lucky7 x = "You loose"
+
+myFun :: Int -> Int -> Int 
+myFun 0 y = 15 
+myFun x 0 = x + 11
+myFun x y = x + y * y + 3
+
+
+addVectors :: (Double, Double) -> (Double, Double) -> (Double, Double) 
+addVectors a b = (fst a + fst b, snd a + snd b)
+
+addVectors' :: (Double, Double) -> (Double, Double) -> (Double, Double)
+addVectors' (x1, y1) (x2, y2) = (x1 + x2, y1 + y2)                 
+
+first  :: (a, b, c) -> a 
+first (x, _, _) = x
+
+second :: (a, b, c) -> b 
+second (_, y, _) = y
+
+third  :: (a, b, c) -> c 
+third (_, _, z) = z
+
+head' :: [a] -> a 
+head' (x:_) = x
+head' []    = error "Can't call head on an empty list, silly!"
+
+tell :: (Show a) => [a] -> String 
+tell []       = "The list is empty" 
+tell (x:[])   = "The list has one element: " ++ show x 
+tell (x:y:[]) = "The list has two elements: " ++ show x 
+                  ++ " and " ++ show y
+tell (x:y:_)  = "This list is long. The first two elements are: " 
+                  ++ show x ++ " and " ++ show y
+
+badAdd, betterAdd :: (Num a) => [a] -> a 
+badAdd (x:y:z:[]) = x + y + z
+
+betterAdd xs = sum (take 3 xs)
+
+-- This is a redefinition of the max function.
+myMax :: Int -> Int -> Int
+myMax x y 
+    | (x<=y)    = y
+    | otherwise = x
+                  
+-- maxThree x y z = the max of the three numbers
+maxThree :: Int -> Int -> Int -> Int
+maxThree x y z
+    | (x>=y) && (x>=z) = x
+    | (y>=z)           = y
+    | otherwise        = z
+
+maxSq :: Int -> Int -> Int
+maxSq x y = max x2 y2
+    where
+      x2 = x*x  -- x2 is a local variable to maxSq
+      y2 = y*y  -- y2 is a local variable to maxSq
+
+maxSq' :: Int -> Int -> Int
+maxSq' x y = max (sq x) (sq y)
+    where
+      sq x = x * x  -- sq is a function def local to maxSq'
+
+describeList, describeList' :: [a] -> String 
+describeList ls 
+    = "The list is " ++ case ls of []  -> "empty."
+                                   [x] -> "a singleton list." 
+                                   xs  -> "a longer list."                    
+
+describeList' ls = "The list is " ++ what ls
+    where what []  = "empty." 
+          what [x] = "a singleton list." 
+          what xs  = "a longer list."                    
+
+             
